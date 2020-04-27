@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bgSound : MonoBehaviour
+public class BgSound : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
         
     }
-    private static bgSound instance=null;
-    public static bgSound Instance{
+    private static BgSound instance=null;
+    public static BgSound Instance{
         get{return instance;}
     }
 
