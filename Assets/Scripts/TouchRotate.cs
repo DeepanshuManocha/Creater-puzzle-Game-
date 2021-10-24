@@ -1,18 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class TouchRotate : MonoBehaviour
 {
     float number;
     float[] Rotation = new float[] {-90f,90f,180f };
-    public static bool levelCleared;
+    public static bool level1Cleared, level0Cleared;
 
 
     private void Start() 
     {
         
-        number =Rotation [Random.Range(0,Rotation.Length)];
+        number = Rotation [Random.Range(0,Rotation.Length)];
        
         transform.Rotate(0f,0f,number);
         
@@ -20,38 +20,20 @@ public class TouchRotate : MonoBehaviour
 
     public void OnMouseDown() 
     {
-        LoadData();
-        if(!GameControl.youWin)
+        if(!GameControl.youWin && GameControl.isRunning)
         {
             transform.Rotate(0f,0f,90f);
            
         }
         
-        if (GameControl.youWin && (Application.loadedLevelName == "1c"))
+        if (GameControl.youWin)
         {
-            levelCleared = true;
-            SaveData();
-            Debug.Log(levelCleared);
+            if (SceneManager.GetActiveScene().name == "1c")
+                level1Cleared = true;
+            else if (SceneManager.GetActiveScene().name == "0a")
+                level0Cleared = true;
         }
         
         
-    }
-
-    public void LoadData()
-    {
-        PlayerPrefs.GetInt("levelData");
-    }
-
-    public void SaveData()
-    {
-        PlayerPrefs.SetInt("levelData", boolToInt(levelCleared));
-    }
-
-    private int boolToInt(bool val)
-    {
-        if (val)
-            return 1;
-        else
-            return 0;
     }
 }

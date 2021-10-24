@@ -16,7 +16,6 @@ public class GameControl : MonoBehaviour
     {
         youWin=false;
         isRunning = true;
-        PlayerPrefs.GetInt("levelData");
     }
 
     // Update is called once per frame

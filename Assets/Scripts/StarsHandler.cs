@@ -18,20 +18,20 @@ public class StarsHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(gameTimer.timer<=75f)
+        if(gameTimer.timer<=50)
         {
-            for(int i=0; i<=stars.Length; i++)
+            for(int i=0; i<=stars.Length-1; i++)
             {
                 stars[i].SetActive(true);
             }
         }
-        if (gameTimer.timer > 75f && gameTimer.timer<=105f)
+        if (gameTimer.timer > 50f && gameTimer.timer<=80f)
         {
             stars[0].SetActive(true);
             stars[1].SetActive(true);
             stars[2].SetActive(false);
         }
-        if(gameTimer.timer>105)
+        if(gameTimer.timer>80)
         {
             stars[0].SetActive(true);
             stars[1].SetActive(false);

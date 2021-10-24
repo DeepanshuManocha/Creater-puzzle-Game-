@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
+using TMPro;
 public class DialogueManager : MonoBehaviour
 {
 
     //public Text nameText;
     public Text dialogueText;
+    public TextMeshProUGUI dText;
 
     public Animator animator;
 
@@ -56,9 +57,11 @@ public class DialogueManager : MonoBehaviour
     IEnumerator TypeSentence(string sentence)
     {
         dialogueText.text = "";
+        dText.text = "";
         foreach (char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
+            dText.text += letter;
             yield return null;
         }
     }

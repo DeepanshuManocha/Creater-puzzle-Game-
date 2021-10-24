@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
+
+    public void StartGame()
+    {
+        GameControl.isRunning = true;
+    }
     public void Play()
     {
         SceneManager.LoadScene(1);
@@ -61,6 +66,17 @@ public class UIController : MonoBehaviour
     {
         SceneManager.LoadScene(15);
     }
+
+    public void LoadLevel0()
+    {
+        SceneManager.LoadScene(17);
+    }
+
+    public void LoadLevel0a()
+    {
+        SceneManager.LoadScene(19);
+    }
+
     public void ReStart()
     {
         Scene scene = SceneManager.GetActiveScene(); 

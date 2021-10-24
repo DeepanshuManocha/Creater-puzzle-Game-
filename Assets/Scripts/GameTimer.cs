@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameTimer : MonoBehaviour
 {
@@ -9,10 +10,10 @@ public class GameTimer : MonoBehaviour
     public float timer=0f;
     // Start is called before the first frame update
     void Start()
-    {
-        
+    {   if(SceneManager.GetActiveScene().name == "0a")
+            GameControl.isRunning = false;
     }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -25,7 +26,6 @@ public class GameTimer : MonoBehaviour
             string timerString = string.Format("{0:00}:{1:00}", minutes, seconds);
             timerText.text = timerString;
             timerScoreText.text = timerString;
-            Debug.Log(timer);
         }
     }
 }
